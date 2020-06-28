@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Firebase
+import Resolver
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    @Injected var authenticationService: AuthenticationService
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        authenticationService.signIn()
         return true
     }
 
